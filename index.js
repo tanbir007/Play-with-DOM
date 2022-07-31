@@ -32,15 +32,18 @@
     
     const main=()=>{
         const root =document.getElementById("root");
-        const btn=document.getElementById("change-btn");
+        const changeBtn=document.getElementById("change-btn");
         const output = document.getElementById("output");
+        const copyBtn=document.getElementById("copy-btn");
     
-        btn.addEventListener("click",()=>{
+        changeBtn.addEventListener("click",()=>{
             const bgColor =rgbColor();
             root.style.backgroundColor =bgColor;
             output.value =bgColor; 
         })
-        console.log(btn,"vluih")
+        copyBtn.addEventListener("click",()=>{
+            navigator.clipboard.writeText(output.value);
+        })
     }
     const rgbColor=()=>{
         const red=Math.floor(Math.random()*255);
